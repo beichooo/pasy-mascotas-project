@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Encuentra mascotas en adopción en PASY</title>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li>
+          <a href="{% url 'home' %}"> Inicio</a>
+        </li>
+
+        {% if user.is_authenticated %}
+        <li>
+          <a href="{% url 'pet_list' %}">Lista de mascotas</a>
+        </li>
+        <li>
+          <a href="{% url 'sign_out' %}">Cerrar sesión</a>
+        </li>
+
+        <li>
+          <a href="{% url 'add_pet' %}">Añadir mascota</a>
+        </li>
+        {% else %}
+        <li>
+          <a href="{% url 'sign_up' %}">Registrarse</a>
+        </li>
+
+        <li>
+          <a href="{% url 'sign_in' %}">Iniciar sesión</a>
+        </li>
+        {% endif %}
+      </ul>
+    </nav>
+    {% block content %} {% endblock content %}
+  </body>
+</html>

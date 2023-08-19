@@ -1,0 +1,118 @@
+{% extends 'layouts/base1_search.html' %} {% load static %} {% block content %}
+
+<main class="pet-profile-body">
+  <section class="pet-profile">
+    <article class="pet-profile__carousel">
+      <img
+        src="../../../media/{{pet.photos}}"
+        alt="carrusel de fotografias de la mascota"
+      />
+      <h1>{{pet.name}}</h1>
+    </article>
+
+    <article class="results__parameters">
+      <div>
+        <span>{{pet.species}}</span>
+        <span>{{pet.gender}}</span>
+        <span>{{pet.size}}</span>
+        <span>{{pet.age}} años</span>
+      </div>
+    </article>
+
+    <article class="pet-profile__status-box">
+      <div>
+        <img
+          src="{% static 'img/health-status__pet-profile.svg' %}"
+          alt="icono de salud"
+        />
+        <span class="pet-profile__health-tag" health-pet-tag="{{pet.health}}">
+          {{pet.health}}
+        </span>
+      </div>
+
+      <div>
+        <img
+          src="{% static 'img/mood-status__pet-profile.svg' %}"
+          alt="icono de humor"
+        />
+        <span class="pet-profile__mood-tag" mood-pet-tag="{{pet.personality}}">
+          {{pet.personality}}
+        </span>
+      </div>
+
+      <div>
+        <img
+          src="{% static 'img/location-status__pet-profile.svg' %}"
+          alt="icono de casita"
+        />
+        <div>
+          <span>{{pet.user.shelter_name}}</span>
+          <span>en {{pet.user.address}}</span>
+        </div>
+      </div>
+    </article>
+
+    <div class="results__cta">
+      <button
+        type="submit"
+        id="advices-pop-up-btn"
+        onclick="window.location.href='{% url 'visit_pet' pet.id %}'"
+      >
+        Quiero visitarlo
+      </button>
+    </div>
+
+    <div class="results__cta">
+      <button class="share-whatsapp" id="whatsapp-share">
+        <img src="{% static 'img/whatsapp.svg' %}" alt="whatsapp icon" />
+        Enviar a un amigo
+      </button>
+    </div>
+  </section>
+
+  <section class="more-info-pet">
+    <h2 class="more-info-pet__title">Más información</h2>
+    <h3 class="more-info-pet__tag">
+      <span class="pet-profile__mood-tag" mood-pet-tag="{{pet.personality}}">
+        {{pet.personality}}
+      </span>
+    </h3>
+    <p>{{pet.pers_detail}}</p>
+
+    <h3 class="more-info-pet__tag">
+      <span class="pet-profile__health-tag" health-pet-tag="{{pet.health}}">
+        {{pet.health}}
+      </span>
+    </h3>
+    <p>{{pet.health_detail}}</p>
+  </section>
+
+  <section class="shelter-info">
+    <h2>Lo cuida: {{pet.user.shelter_name}}</h2>
+    <p>{{pet.user.shelter_description}}</p>
+
+    {% comment %}
+    <button class="donate-cta" id="donateToShelter">Donar al Albergue</button>
+    {% endcomment %}
+  </section>
+</main>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var whatsappButton = document.getElementById("whatsapp-share");
+
+    whatsappButton.addEventListener("click", function () {
+      var currentURL = window.location.href;
+      var customMessage = "Esta mascota esta buscando un hogar: ";
+
+      // Construct the WhatsApp sharing URL
+      var whatsappURL =
+        "https://api.whatsapp.com/send?text=" +
+        encodeURIComponent(customMessage + " " + currentURL);
+
+      // Open the WhatsApp sharing URL in a new window
+      window.open(whatsappURL, "_blank");
+    });
+  });
+</script>
+{% endblock content %}

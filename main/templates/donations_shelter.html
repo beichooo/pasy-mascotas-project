@@ -1,0 +1,125 @@
+{% extends 'layouts/base1_main.html' %} {% load static %} {% block content %}
+
+<main>
+  <section class="why-donate">
+    <h1 class="why-donate__title">{{shelter.shelter_name}}</h1>
+    <img
+      src="../../media/{{shelter.shelter_logo}}"
+      class="why-donate__img"
+      alt="logo del albergue"
+    />
+    <p class="why-donate__text">{{shelter.shelter_description}}</p>
+  </section>
+
+  <section class="shelter-social-media">
+    <a href="{{shelter.link_facebook}}" target="_blank">
+      <img
+        src="{% static 'img/fb_logo.webp' %}"
+        alt="facebook logo"
+        width="50"
+      />
+    </a>
+    <a href="{{shelter.link_tiktok}}" target="_blank">
+      <img
+        src="{% static 'img/tk_logo_1.png' %}"
+        alt="tiktok logo"
+        width="50"
+      />
+    </a>
+    <a href="{{shelter.link_whatsapp}}" target="_blank">
+      <img
+        src="{% static 'img/whatsapp.svg' %}"
+        alt="whatsapp logo"
+        width="50"
+      />
+    </a>
+    <a href="{{shelter.link_instagram}}" target="_blank">
+      <img
+        src="{% static 'img/ig_logo.png' %}"
+        alt="instagram logo"
+        width="50"
+      />
+    </a>
+    <br />
+    <p class="shelter-social-media-text">
+      Hay muchas formas de ayudar!!!
+      <br />
+      &#128071;
+    </p>
+  </section>
+
+  <section class="steps-donate">
+    <details class="donate-money-block">
+      <summary class="donate-money-block__title">¿Cómo puedo donar?</summary>
+      <p class="donate-money-block__text">
+        Recibimos donaciones monetarias 💵 y en especie🥩 <br />
+        Los peluditos y nosotros te lo agradeceremos🐶🧡.
+      </p>
+      <p class="steps-donate__title">🪙Para donar por QR</p>
+      <div class="donations-background">
+        <img
+          src="{% static 'img/donate_steps-2.webp' %}"
+          alt="pasos para donar dinero"
+        />
+        <img
+          src="../../media/{{shelter.qr_donation}}"
+          alt="codigo QR de donacion"
+          class="steps-donate__img"
+          loading="lazy"
+        />
+        <a
+          class="steps-donate__btn download-qr-button"
+          href="{{shelter.qr_donation}}"
+          download
+          >Descargar
+        </a>
+      </div>
+      <p class="donate-money-block__specie">🥩Para donar en especie</p>
+      <div class="donations-background">
+        <p class="donate-money-block__description">
+          Recibimos comida, frazadas, materiales, croquetas, solo mándanos un
+          mensaje
+        </p>
+        <img
+          src="{% static 'img/pet-shelter-donate.webp' %}"
+          alt="ilustracion de casita de mascota"
+        />
+        <a target="_blank" href="{{shelter.link_whatsapp}}">
+          Envíar un mensaje
+        </a>
+      </div>
+    </details>
+
+    <details class="donate-kind-block">
+      <summary class="donate-kind-block__title">
+        ¿Cómo puedo ser voluntario?
+      </summary>
+      <p class="steps-donate__title">💪Necesitaremos tu ayuda en:</p>
+      <div class="donations-background">
+        <ul class="donate-kind-block__list">
+          <li>🧹Limpiar, barrer y lavar</li>
+          <li>🐾Acompañar y cuidar a las mascotas</li>
+          <li>🛠️Refaccionar muebles y espacios</li>
+        </ul>
+      </div>
+      <p class="steps-donate__title">🕑Puedes ayudarnos en estos horarios:</p>
+      <div class="donations-background">
+        <p class="donate-kind-block__hours">
+          De lunes a domingo <br />
+          ☀️Mañanas de 10:00 a 13:00 <br />🌇Tardes de 16:00 a 19:00
+        </p>
+        <p>Toda ayuda cuenta, cualquier duda envíanos un mensaje</p>
+        <a target="_blank" href="{{shelter.link_whatsapp}}">
+          Envíar un mensaje
+        </a>
+      </div>
+    </details>
+  </section>
+</main>
+<button
+  class="donate-go-home"
+  onclick="window.location.href='{% url 'donations'%}'"
+>
+  Volver al inicio
+</button>
+{% endblock content %}

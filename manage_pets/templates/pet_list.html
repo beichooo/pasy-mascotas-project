@@ -1,0 +1,18 @@
+{% extends 'layouts/base1.html' %} {% block content %}
+
+<h1>Lista de tu mascota en adopción</h1>
+<ul>
+  {% for pet in pets %}
+  <li>
+    {{ pet.name }} - {{ pet.species }} - {{ pet.gender }} - {{ pet.size }} -
+    {{pet.age }}
+    <a href="{% url 'edit_pet' pet.id %}">Editar mascota</a>
+
+    <form action="{% url 'delete_pet' pet.id %}" method="POST">
+      {% csrf_token %} {{error}} <input type="submit" value="Eliminar" />
+    </form>
+  </li>
+  {% endfor %}
+</ul>
+<a href="{% url 'add_pet' %}">Add New Pet</a>
+{% endblock content %}

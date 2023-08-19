@@ -1,0 +1,141 @@
+{% extends 'layouts/base1_main.html' %} {% load static %} {% block content %}
+<h1 style="display: none">Encuentra mascotas en adopción con PASY</h1>
+<main>
+  <!-- This is the hero section, includes the CTA, a phrase and a photo or media, is like the landing page for the project -->
+  <section class="hero">
+    <h1 class="hero__title">Encuentra mascotas en adopción</h1>
+    <button
+      class="hero__cta searchPetGA"
+      id="heroCta"
+      onclick="window.location.href='{% url 'search_form' %}'"
+    >
+      <img src="{% static 'img/paw-icon.svg' %}" alt="paw icon" />
+      BUSCAR UNA MASCOTA
+    </button>
+    <span class="hero__cta-support">Un hogar, una mascota</span>
+  </section>
+  <!-- Panel dedicated for show basic information about adoption process, includes 3 questions and 1 space for positive facts or news -->
+  <section class="info-panel">
+    <div class="info-panel__container">
+      <h2 class="info-panel__title">Más información</h2>
+      <div class="info-panel__how-adopt">
+        <img
+          class="info-panel__how-adopt-img"
+          src="{% static 'img/how-adopt__info-panel.svg' %}"
+          alt="emoticons for dog, cat and a house"
+        />
+        <h3 class="info-panel__how-adopt-text">
+          ¿Cómo puedo adoptar una mascota?
+        </h3>
+      </div>
+      <div class="info-panel__two-columns">
+        <div class="info-panel__column" id="faq-box">
+          <img
+            src="{% static 'img/usual-questions__info-panel.svg' %}"
+            alt=" questions marks"
+          />
+          <h3>Preguntas frecuentes</h3>
+        </div>
+        <div class="info-panel__column" id="in-adoption-box">
+          <img
+            src="{% static 'img/give-adopt__info-panel.svg' %}"
+            alt=" two hands praying"
+          />
+          <h3>¿Cómo dar en adopción?</h3>
+        </div>
+      </div>
+      <div class="info-panel__facts">
+        <p>Formar hogares con mascotas amadas, es nuestra misión</p>
+        <img
+          src="{% static 'img/facts-image__info-panel.svg' %}"
+          alt="related to the new of fact"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="pets-showcase">
+    <!-- <h2 class="pets-showcase__title">Mascotas cerca de ti</h2>
+      <div class="pets-showcase__grid">
+        <div class="pets-showcase__card">
+          <img src="./img/pet-photo__pet-showcase.png" alt="pet photo" />
+          <p>Filogmeno</p>
+          <span>Macho - Villa Adela</span>
+        </div>
+        <div class="pets-showcase__card">
+          <img src="./img/pet-photo__pet-showcase.png" alt="pet photo" />
+          <p>Filogmeno</p>
+          <span>Macho - Villa Adela</span>
+        </div>
+
+        <div class="pets-showcase__card">
+          <img src="./img/pet-photo__pet-showcase.png" alt="pet photo" />
+          <p>Filogmeno</p>
+          <span>Macho - Villa Adela</span>
+        </div>
+        <div class="pets-showcase__card">
+          <img src="./img/pet-photo__pet-showcase.png" alt="pet photo" />
+          <p>Filogmeno</p>
+          <span>Macho - Villa Adela</span>
+        </div>
+      </div> -->
+  </section>
+
+  <section class="doubts-panel">
+    <!-- <div class="doubts-panel__option doubts-panel__option--secondary">
+      <a href="">
+        <img src="./img/pet-list-icon__doubts-panel.svg" alt="dog face icon" />
+        <p>Lista de mascotas disponibles</p>
+      </a>
+    </div> -->
+
+    <div class="doubts-panel__option doubts-panel__option--secondary">
+      <!-- TODO: Put the correct link for the donations page-->
+      <a href="{% url 'donations' %}">
+        <p>🏠 Lista de albergues amigos</p>
+      </a>
+    </div>
+  </section>
+
+  <div class="ask-opinion">
+    <img
+      src="{% static 'img/agarre-manos.svg' %}"
+      alt="agarre de manos para pedir opinion"
+    />
+    <a
+      class="suggest-box__btn"
+      href="https://docs.google.com/forms/d/e/1FAIpQLSc2GcgdoTXtN7q0QvduGtjQ4qNzEaVzBFPWWUlHkVlTYKNzOA/viewform?usp=sf_link"
+      target="_blank"
+    >
+      Envíanos sugerencias
+    </a>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer__creator-sign">
+    <span>Powered by @beichooo</span>
+  </div>
+  <div class="footer__social-media">
+    <a
+      target="_blank"
+      href="https://www.tiktok.com/@pasymascotas?is_from_webapp=1&sender_device=pc"
+    >
+      <img
+        src="https://www.svgrepo.com/show/349530/tiktok.svg"
+        alt="tiktok logo"
+      />
+    </a>
+    <a
+      target="_blank"
+      href="https://www.facebook.com/people/PASY-Mascotas/100094464519416/"
+    >
+      <img
+        src="https://www.svgrepo.com/show/452196/facebook-1.svg"
+        alt="facebook logo"
+      />
+    </a>
+  </div>
+</footer>
+
+{% endblock content %}

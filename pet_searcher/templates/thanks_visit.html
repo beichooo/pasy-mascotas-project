@@ -1,0 +1,76 @@
+{% extends 'layouts/base1_search.html' %} {% load static %} {% block content %}
+
+<section class="visit-thanks-container">
+    <article class="thanks">
+        <h1>GRACIAS!!! 🧡</h1>
+        <p>
+            {{pet.name}}
+            <span> espera tu visita</span>
+        </p>
+        <img src="../../../media/{{pet.photos}}" alt="mascota posando" />
+    </article>
+    <span class="tools-visit__indication"
+        >Ahora, puedes hacer lo siguiente:</span
+    >
+    <article class="tools-visit">
+        <!-- TODO: Put the links according the user -->
+        <a
+            target="_blank"
+            class="unirte-grupo-wp"
+            href="{{pet.user.link_whatsapp}}"
+        >
+            <button class="tools-visit__btn">
+                <img
+                    src="{% static 'img/whatsapp.svg' %}"
+                    alt="whatsapp icon"
+                />Unirte al grupo
+            </button>
+        </a>
+        <a target="_blank" class="ver-mapa-g" href="{{pet.user.link_maps}}">
+            <button class="tools-visit__btn">
+                <img
+                    src="{% static 'img/google maps.svg' %}"
+                    alt="logo google maps"
+                />Ver la dirección
+            </button>
+        </a>
+        <a target="_blank" class="donar-qr-ty-page" href="#">
+            <button class="tools-visit__btn">
+                <img
+                    src="{% static 'img/qr-code-icon.svg' %}"
+                    alt="logo de qr"
+                />Donar por QR
+            </button>
+        </a>
+    </article>
+
+    <article class="results__cta">
+        <span id="thanks-btn-phrase">La mejor forma de ayudarnos</span>
+        <!--FIXME: The share for facebook option now dont work-->
+        <button class="facebook-share-btn">
+            <a target="_blank" class="facebook-share" href=""
+                >Compartir en Facebook</a
+            >
+        </button>
+        <button
+            class="results__cta--secondary"
+            id="visitThanksHome"
+            onclick="window.location.href='{% url 'search_form'%}'"
+        >
+            Volver al inicio
+        </button>
+    </article>
+</section>
+
+<script>
+    const imageUrl = "{% static 'img/share-image-fb.png' %}";
+    const msg = encodeURIComponent(
+        "La mejor compañia la puedes adoptar de forma sencilla con PASY"
+    );
+    const title = encodeURIComponent("Yo prefiero adoptar una mascota, y tú?");
+
+    const fb = document.querySelector(".facebook-share");
+    fb.href = `https://www.facebook.com/sharer/sharer.php?u=${imageUrl}&title=${title}&description=${msg}`;
+</script>
+
+{% endblock content %}

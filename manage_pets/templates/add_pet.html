@@ -1,0 +1,8 @@
+{% extends 'layouts/base1.html' %} {% block content %}
+<h1>Registra una nueva mascota</h1>
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %} {{ form.as_p }}
+  <input type="submit" value="Add Pet" />
+</form>
+<a href="{% url 'pet_list' %}">Back to Pet List</a>
+{% endblock content %}

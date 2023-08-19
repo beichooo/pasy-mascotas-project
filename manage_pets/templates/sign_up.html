@@ -1,0 +1,16 @@
+{% extends 'layouts/base1.html' %} {% block content %}
+
+<h1>Hello for signup</h1>
+{{error}}
+<form method="POST" enctype="multipart/form-data">
+  {% csrf_token %} {{form.as_p}}
+  <input type="submit" value="Register" />
+</form>
+
+{% if form.errors %}
+<ul>
+  {% for field in form %} {% if field.errors %}
+  <li>{{ field.label }}: {{ field.errors|join:", " }}</li>
+  {% endif %} {% endfor %}
+</ul>
+{% endif %} {% endblock content %}

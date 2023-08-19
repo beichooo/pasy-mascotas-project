@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <!-- TODO: Favicon, put the favicon in all the pages   -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Encuentra una mascota con PASY</title>
+    <meta
+      name="description"
+      content="Buscador de mascotas en adopción, encuentra tu mascota ideal en alguno de los albergues de La Paz"
+    />
+    <link rel="icon" href="{% static 'img/favicon-pasy.svg' %}" />
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+          "gtm.start": new Date().getTime(),
+          event: "gtm.js",
+        });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-59WDXHM");
+    </script>
+    <!-- End Google Tag Manager -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600&display=swap"
+      rel="stylesheet"
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-59WDXHM"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <header>
+      <nav class="nav-bar">
+        <a href=" {% url 'index' %}">
+          <span class="nav-bar__logo">PASY</span>
+        </a>
+
+        <div class="nav-bar__btns">
+          <button
+            class="nav-bar__donate-btn"
+            onclick="window.location.href='{% url 'donations'%}'"
+          >
+            Donar
+            <img
+              src="{% static 'img/green-heart__nav-bar-icon.svg' %}"
+              alt="green heart"
+            />
+          </button>
+          <img
+            class="nav-bar__menu-icon"
+            src="{% static '/img\burguer-menu__nav-bar-icon.svg' %}"
+            alt="burguer menu icon"
+          />
+        </div>
+      </nav>
+    </header>
+    {% block content %} {% endblock content %}
+  </body>
+</html>

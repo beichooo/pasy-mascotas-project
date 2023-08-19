@@ -1,0 +1,46 @@
+{% extends 'layouts/base1_search.html' %} {% load static %} {% block content %}
+
+<main class="results-list">
+  <h1 class="results__title">Lista de resultados</h1>
+
+  <section class="results__parameters">
+    <span>para:</span>
+    <div>
+      <span>{{specie_field}}</span>
+      <span>{{gender_field}}</span>
+      <span>{{size_field}}</span>
+      <span>{{min_age}} a {{max_age}} años</span>
+    </div>
+  </section>
+
+  <section class="pet-list" id="resultsContainer">
+    {% for pet in pets %}
+    <article class="pet-list__item">
+      <div>
+        <img
+          class="pet-list__thumbnail"
+          src="../../media/{{pet.photos}}"
+          alt="mascota posando"
+        />
+        <div>
+          <p>{{ pet.name }}</p>
+          <span>{{pet.user.shelter_name}} - {{ pet.user.address }} </span>
+        </div>
+      </div>
+      <a href="{% url 'info_pet' pet.id %}">Ver más</a>
+    </article>
+    {% empty %}
+    <p class="pet-list__no-results-msg">😅Upsss, prueba con otros por favor.</p>
+    {% endfor %}
+  </section>
+
+  <div class="results__cta">
+    <button
+      class="results__cta--secondary volver-buscar"
+      onclick="window.location.href='{% url 'search_form' %}'"
+    >
+      Volver a buscar
+    </button>
+  </div>
+</main>
+{% endblock content %}

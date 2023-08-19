@@ -1,0 +1,12 @@
+{% extends 'layouts/base1.html' %} {% block content %}
+<h1>Edita una mascota</h1>
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %} {{ form.as_p }}
+  <input type="submit" value="Save Changes" />
+</form>
+
+<form action="{% url 'delete_pet' pet.id %}" method="POST">
+  {% csrf_token %} {{error}} <input type="submit" value="Eliminar" />
+</form>
+<a href="{% url 'pet_list' %}">Back to Pet List</a>
+{% endblock content %}
