@@ -63,10 +63,7 @@ class Pets(models.Model):
     personality = models.CharField(max_length=20, choices=PERSONALITY_CHOICES)
     pers_detail = models.TextField(max_length=200)
     photos = models.ImageField(upload_to="pet_photos/")
-    photos_sec = models.ImageField(
-        upload_to="pet_photos/", blank=True, null=True)
-    user = models.ForeignKey(
-        CustomUser, on_delete=models.CASCADE, related_name="pets")
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name="pets")
 
     def __str__(self):
         return f"{self.name} ({self.species})"
