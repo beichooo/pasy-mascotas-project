@@ -455,6 +455,12 @@ main .hero {
   justify-content: center;
 }
 
+.doubts-panel__link {
+  text-decoration: none;
+  font-family: var(--texts-font);
+  color: var(--brand-color-800);
+}
+
 .doubts-panel__option p {
   font-family: var(--titles-font);
   font-style: normal;

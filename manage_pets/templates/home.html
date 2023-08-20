@@ -1,3 +1,41 @@
-{% extends 'layouts/base1.html' %} {% block content %}
-<h1>Bienvenido a PASY, encuentra tu mascota ideal en 2 clicks</h1>
+{% extends 'layouts/base1.html' %} {% load static %} {% block content %}
+<h1 class="searcher-page__title">Bienvenido</h1>
+
+<section class="doubts-panel">
+  <ul>
+    <li class="doubts-panel__option doubts-panel__option--secondary">
+      <a href="{% url 'home' %}" class="doubts-panel__link"> 🏠Inicio</a>
+    </li>
+
+    {% if user.is_authenticated %}
+    <li class="doubts-panel__option doubts-panel__option--secondary">
+      <a href="{% url 'pet_list' %}" class="doubts-panel__link">
+        🐶Lista de mascotas</a
+      >
+    </li>
+    <li class="doubts-panel__option doubts-panel__option--secondary">
+      <a href="{% url 'sign_out' %}" class="doubts-panel__link"
+        >❌Cerrar sesión</a
+      >
+    </li>
+
+    <li class="doubts-panel__option doubts-panel__option--secondary">
+      <a href="{% url 'add_pet' %}" class="doubts-panel__link"
+        >📝Añadir mascota</a
+      >
+    </li>
+    {% else %}
+    <li class="doubts-panel__option doubts-panel__option--secondary">
+      <a href="{% url 'sign_up' %}" class="doubts-panel__link">🟢Registrarse</a>
+    </li>
+
+    <li class="doubts-panel__option doubts-panel__option--secondary">
+      <a href="{% url 'sign_in' %}" class="doubts-panel__link"
+        >📲Iniciar sesión</a
+      >
+    </li>
+    {% endif %}
+  </ul>
+</section>
+
 {% endblock content %}
