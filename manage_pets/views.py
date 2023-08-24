@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
@@ -124,34 +124,38 @@ def edit_pet(request, pet_id):
 
 
 @login_required
-def delete_pet(request, pet_id):
-    pet = Pets.objects.get(pk=pet_id)
-    if request.method == "POST":
-        # Delete photos_sec file if it exists
-        if pet.photos_sec:
-            photos_sec_path = pet.photos_sec.path
-            if default_storage.exists(photos_sec_path):
-                try:
-                    os.remove(photos_sec_path)
-                except Exception as e:
-                    # Handle any exception that might occur during photo deletion
-                    print(f"Error deleting photos_sec: {e}")
+def delete_pet(request, pk):
+    dog = get_object_or_404(Pets, pk=pk)
+    dog.delete()
+    return redirect("pet_list")
 
-        # Delete the pet object from the database
-        pet.delete()
+    # pet = Pets.objects.get(pk=pet_id)
+    # if request.method == "POST":
+    #     # Delete photos_sec file if it exists
+    #     if pet.photos_sec:
+    #         photos_sec_path = pet.photos_sec.path
+    #         if default_storage.exists(photos_sec_path):
+    #             try:
+    #                 os.remove(photos_sec_path)
+    #             except Exception as e:
+    #                 # Handle any exception that might occur during photo deletion
+    #                 print(f"Error deleting photos_sec: {e}")
 
-        # Delete photos file (similar to what you already have)
-        photo_path = pet.photos.path
-        if default_storage.exists(photo_path):
-            try:
-                os.remove(photo_path)
-            except Exception as e:
-                # Handle any exception that might occur during photo deletion
-                print(f"Error deleting photo: {e}")
+    #     # Delete the pet object from the database
+    #     pet.delete()
 
-        return redirect("pet_list")
-    else:
-        return redirect("pet_list", {"error": "la mascota no se pudo eliminar"})
+    #     # Delete photos file (similar to what you already have)
+    #     photo_path = pet.photos.path
+    #     if default_storage.exists(photo_path):
+    #         try:
+    #             os.remove(photo_path)
+    #         except Exception as e:
+    #             # Handle any exception that might occur during photo deletion
+    #             print(f"Error deleting photo: {e}")
+
+    #     return redirect("pet_list")
+    # else:
+    #     return redirect("pet_list", {"error": "la mascota no se pudo eliminar"})
 
 
 # this is the first version for the manage_pets app, the next is with frontend changes
