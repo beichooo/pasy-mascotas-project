@@ -68,5 +68,9 @@ class Pets(models.Model):
     def __str__(self):
         return f"{self.name} ({self.species})"
 
+    def delete(self):
+        self.photos.delete()
+        super().delete()
+
     class Meta:
         verbose_name_plural = "Pets"

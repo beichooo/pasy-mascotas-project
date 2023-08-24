@@ -9,6 +9,6 @@ urlpatterns = [
     path("accounts/login/", views.sign_in, name="sign_in"),
     path("pets/", views.pet_list, name="pet_list"),
     path("pets/add/", views.add_pet, name="add_pet"),
-    path("pets/<int:pet_id>/edit/", views.edit_pet, name="edit_pet"),
-    path("pets/<int:pet_id>/edit/delete/", views.delete_pet, name="delete_pet"),
+    path("pets/edit/<int:pet_id>/", views.edit_pet, name="edit_pet"),
+    path("pets/edit/delete/<int:pk>/", views.delete_pet, name="delete_pet"),
 ]

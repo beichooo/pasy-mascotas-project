@@ -26,6 +26,4 @@ urlpatterns = [
     path("", include("main.urls")),
     path("usuario/", include("manage_pets.urls")),
     path("buscador/", include("pet_searcher.urls")),
-]
-
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
