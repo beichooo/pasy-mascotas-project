@@ -29,8 +29,8 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", get_random_secret_key())
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("DEBUG", "False") == "True"
-# DEBUG = "True"
+# DEBUG = os.getenv("DEBUG", "False") == "True"
+DEBUG = "True"
 
 ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")
 
@@ -91,7 +91,7 @@ if os.getenv("DATABASE_URL", "") != "":
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.postgresql_psycopg2",
-            "NAME": os.path.relpath(r.path, "/"), # type: ignore
+            "NAME": os.path.relpath(r.path, "/"),  # type: ignore
             "USER": r.username,
             "PASSWORD": r.password,
             "HOST": r.hostname,
@@ -161,5 +161,5 @@ DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 
 AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
 AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
-AWS_STORAGE_BUCKET_NAME = "pasy-storage-s3"
-AWS_LOCATION = "sa-east-1"
+AWS_STORAGE_BUCKET_NAME = "pasy-mascotas-storage-s3"
+AWS_LOCATION = "us-east-1"
