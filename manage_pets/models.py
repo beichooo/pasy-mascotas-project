@@ -59,9 +59,9 @@ class Pets(models.Model):
     size = models.CharField(max_length=10, choices=SIZE_CHOICES)
     age = models.IntegerField(validators=[MinValueValidator(0)])
     health = models.CharField(max_length=20, choices=HEALTH_CHOICES)
-    health_detail = models.TextField(max_length=200)
+    health_detail = models.TextField(max_length=350)
     personality = models.CharField(max_length=20, choices=PERSONALITY_CHOICES)
-    pers_detail = models.TextField(max_length=200)
+    pers_detail = models.TextField(max_length=350)
     photos = models.ImageField(upload_to="pet_photos/")
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name="pets")
 

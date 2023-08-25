@@ -29,3 +29,15 @@ class PetsForm(forms.ModelForm):
     class Meta:
         model = Pets
         exclude = ["user"]
+        labels = {
+            "name": "Nombre de la mascota",
+            "species": "Especie",
+            "gender": "Género",
+            "size": "Tamaño",
+            "age": "Edad",
+            "health": "Estado de salud",
+            "health_detail": "Detalles de su salud",
+            "personality": "Personalidad",
+            "pers_detail": "Detalles de su personalidad",
+            "photos": "Fotografía",
+        }
