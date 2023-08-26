@@ -5,8 +5,6 @@ from django.db import IntegrityError
 from .models import Pets
 from .forms import PetsForm, CustomUserRegistrationForm
 from django.contrib.auth.decorators import login_required
-from django.core.files.storage import default_storage
-import os
 
 
 # Create your views here.
@@ -21,9 +19,9 @@ def sign_up(request):
         form = CustomUserRegistrationForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            # Redirect to a success page or login page after successful registration
             return redirect("sign_in")
         else:
+            # TODO: Put the error and success message
             return render(request, "sign_up.html", {"form": form})
     else:
         form = CustomUserRegistrationForm()

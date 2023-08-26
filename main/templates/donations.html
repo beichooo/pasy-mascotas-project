@@ -1,33 +1,29 @@
 {% extends 'layouts/base1_main.html' %} {% load static %} {% block content %}
 
 <section class="donations-home__header">
-  <h1>Donaciones</h1>
-  <h2>Ayuda a que los albergues sigan cambiando vidas</h2>
-  <img
-    src="{% static 'img/donaciones-qr-icon.svg' %}"
-    alt="icono de codigo QR"
-  />
+	<h1>Donaciones</h1>
+	<h2>Ayuda a que los albergues sigan cambiando vidas</h2>
+	<img
+		src="{% static 'img/donaciones-qr-icon.svg' %}"
+		alt="icono de codigo QR"
+	/>
 </section>
 
 <main>
-  <section class="pets-showcase">
-    <!--TODO: Connect with the users table for view the shelters -->
-    <div class="pets-showcase__grid">
-      {%for shelter in shelters %}
-      <div class="pets-showcase__card">
-        <a href="{% url 'shelter_profile' shelter.id %}">
-          <img
-            src="../../media/{{shelter.shelter_logo}}"
-            alt="logo del albergue"
-          />
-          <p>{{shelter.shelter_name}}</p>
-          <span>{{ shelter.address }}</span>
-        </a>
-      </div>
-      {% endfor %}
-    </div>
-  </section>
-  <!-- 
+	<section class="pets-showcase">
+		<div class="pets-showcase__grid">
+			{%for shelter in shelters %}
+			<div class="pets-showcase__card">
+				<a href="{% url 'shelter_profile' shelter.id %}">
+					<img src="{{shelter.shelter_logo.url}}" alt="logo del albergue" />
+					<p>{{shelter.shelter_name}}</p>
+					<span>{{ shelter.address }}</span>
+				</a>
+			</div>
+			{% endfor %}
+		</div>
+	</section>
+	<!-- 
       <section>
         <div class="donate-pasy">
           <p>También puedes apoyar a PASY para que siga mejorando</p>
@@ -40,12 +36,12 @@
           </button>
         </div>
       </section> -->
-  <button
-    class="donate-go-home"
-    onclick="window.location.href='{% url 'index'%}'"
-  >
-    Volver al inicio
-  </button>
+	<button
+		class="donate-go-home"
+		onclick="window.location.href='{% url 'index'%}'"
+	>
+		Volver al inicio
+	</button>
 </main>
 
 {% endblock content %}
