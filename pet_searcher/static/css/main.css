@@ -93,7 +93,7 @@ header {
 
 /* hero section */
 main .hero {
-	background-image: url("../img/dog-photo__hero-section.png");
+	background-image: url("../img/dog-photo__hero-section-opt-v2.webp");
 	background-size: cover;
 	background-position: top;
 	object-fit: cover;
@@ -158,7 +158,7 @@ main .hero {
 	width: 100%;
 	padding: 0 32px;
 	padding-top: 24px;
-	background-image: url(../img/paws-background__info-panel.svg);
+	background-image: url("../img/paws-bg-info-panel-short-opt.webp");
 	background-size: cover;
 	object-fit: cover;
 	min-height: 567px;
@@ -2392,9 +2392,10 @@ div:has(.donate-cta) {
 
 @media (min-width: 500px) {
 	main .hero {
-		background-image: url("../img/dog-photo__hero-section-large.svg");
+		background-image: url("../img/dog-photo__hero-section-large-opt.webp");
 	}
+
 	.info-panel {
-		background-image: url("../img/paws-background__info-panel-large.svg");
+		background-image: url("../img/paws-bg-info-panel-large-opt.webp");
 	}
 }
