@@ -1,23 +1,23 @@
 {% extends 'layouts/base1.html' %} {% block content %}
 <h1 class="searcher-page__title">Edita una mascota</h1>
 <form method="post" enctype="multipart/form-data" class="add-pet-form">
-	{% csrf_token %} {{ form.as_p }}
-	<input type="submit" value="Guardar cambios" class="add-pet-form__cta" />
+  {% csrf_token %} {{ form.as_p }}
+  <input type="submit" value="Guardar cambios" class="add-pet-form__cta" />
 </form>
 
 <form action="{% url 'delete_pet' pet.id %}" method="POST" class="add-pet-form">
-	{% csrf_token %} {{error}}
-	<input
-		type="submit"
-		value="Eliminar mascota"
-		class="add-pet-form__cta delete_pet"
-	/>
+  {% csrf_token %} {{error}}
+  <input
+    type="submit"
+    value="Eliminar mascota"
+    class="add-pet-form__cta delete_pet"
+  />
 </form>
 
 <button
-	class="donate-go-home"
-	onclick="window.location.href='{% url 'pet_list' %}'"
+  class="donate-go-home"
+  onclick="window.location.href='{% url 'pet_list' %}'"
 >
-	Volver
+  Volver
 </button>
 {% endblock content %}

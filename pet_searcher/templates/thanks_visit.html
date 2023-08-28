@@ -1,71 +1,71 @@
 {% extends 'layouts/base1_search.html' %} {% load static %} {% block content %}
 
 <section class="visit-thanks-container">
-	<article class="thanks">
-		<h1>GRACIAS!!! 🧡</h1>
-		<p>
-			{{pet.name}}
-			<span> espera tu visita</span>
-		</p>
-		<img src="{{pet.photos.url}}" alt="mascota posando" />
-	</article>
-	<span class="tools-visit__indication">Ahora, puedes hacer lo siguiente:</span>
-	<article class="tools-visit">
-		<!-- TODO: Put the links according the user -->
-		<a
-			target="_blank"
-			class="unirte-grupo-wp"
-			href="{{pet.user.link_whatsapp}}"
-		>
-			<button class="tools-visit__btn">
-				<img src="{% static 'img/whatsapp.svg' %}" alt="whatsapp icon" />Unirte
-				al grupo
-			</button>
-		</a>
-		<a target="_blank" class="ver-mapa-g" href="{{pet.user.link_maps}}">
-			<button class="tools-visit__btn">
-				<img
-					src="{% static 'img/google maps.svg' %}"
-					alt="logo google maps"
-				/>Ver la dirección
-			</button>
-		</a>
-		<a
-			target="_blank"
-			class="donar-qr-ty-page"
-			href="{% url 'shelter_profile' pet.user.id %}"
-		>
-			<button class="tools-visit__btn">
-				<img src="{% static 'img/qr-code-icon.svg' %}" alt="logo de qr" />Donar
-				por QR
-			</button>
-		</a>
-	</article>
+  <article class="thanks">
+    <h1>GRACIAS!!! 🧡</h1>
+    <p>
+      {{pet.name}}
+      <span> espera tu visita</span>
+    </p>
+    <img src="{{pet.photos.url}}" alt="mascota posando" />
+  </article>
+  <span class="tools-visit__indication">Ahora, puedes hacer lo siguiente:</span>
+  <article class="tools-visit">
+    <!-- TODO: Put the links according the user -->
+    <a
+      target="_blank"
+      class="unirte-grupo-wp"
+      href="{{pet.user.link_whatsapp}}"
+    >
+      <button class="tools-visit__btn">
+        <img src="{% static 'img/whatsapp.svg' %}" alt="whatsapp icon" />Unirte
+        al grupo
+      </button>
+    </a>
+    <a target="_blank" class="ver-mapa-g" href="{{pet.user.link_maps}}">
+      <button class="tools-visit__btn">
+        <img
+          src="{% static 'img/google maps.svg' %}"
+          alt="logo google maps"
+        />Ver la dirección
+      </button>
+    </a>
+    <a
+      target="_blank"
+      class="donar-qr-ty-page"
+      href="{% url 'shelter_profile' pet.user.id %}"
+    >
+      <button class="tools-visit__btn">
+        <img src="{% static 'img/qr-code-icon.svg' %}" alt="logo de qr" />Donar
+        por QR
+      </button>
+    </a>
+  </article>
 
-	<article class="results__cta">
-		<span id="thanks-btn-phrase"
-			>Ayúdanos haciendo que todos sepan de PASY</span
-		>
+  <article class="results__cta">
+    <span id="thanks-btn-phrase"
+      >Ayúdanos haciendo que todos sepan de PASY</span
+    >
 
-		<!--TODO: Set a option for share a image and no the URL-->
-		<button class="facebook-share-btn">
-			<a
-				href="https://www.facebook.com/sharer/sharer.php?u=https://www.pasymascotas.com/"
-				target="_blank"
-				class="facebook-share"
-			>
-				Compartir en Facebook
-			</a>
-		</button>
+    <!--TODO: Set a option for share a image and no the URL-->
+    <button class="facebook-share-btn">
+      <a
+        href="https://www.facebook.com/sharer/sharer.php?u=https://www.pasymascotas.com/"
+        target="_blank"
+        class="facebook-share"
+      >
+        Compartir en Facebook
+      </a>
+    </button>
 
-		<button
-			class="results__cta--secondary"
-			id="visitThanksHome"
-			onclick="window.location.href='{% url 'search_form'%}'"
-		>
-			Volver al inicio
-		</button>
-	</article>
+    <button
+      class="results__cta--secondary"
+      id="visitThanksHome"
+      onclick="window.location.href='{% url 'search_form'%}'"
+    >
+      Volver al inicio
+    </button>
+  </article>
 </section>
 
 {% endblock content %}

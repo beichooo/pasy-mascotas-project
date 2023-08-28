@@ -1,123 +1,117 @@
 {% extends 'layouts/base1_search.html' %} {% load static %} {% block content %}
 <main class="searcher-page__body">
-    <h1 class="searcher-page__title">Buscador de mascotas</h1>
-    <section>
-        <form
-            class="pet-searcher"
-            action="{% url 'search_pets' %}"
-            method="get"
+  <h1 class="searcher-page__title">Buscador de mascotas</h1>
+  <section>
+    <form class="pet-searcher" action="{% url 'search_pets' %}" method="get">
+      <div class="pet-searcher__field" id="specie-container">
+        <legend id="specie-legend">Especie de la mascota</legend>
+        <div id="specie-div">
+          <label
+            style="
+              font-size: 16px;
+              font-family: Rubik, sans-serif;
+              font-weight: 400;
+              color: #b26404;
+            "
+            for="{{ form.species.id_for_label }}"
+            class="pet-searcher__label"
+            >Especie:</label
+          >
+          {{ form.species }}
+        </div>
+      </div>
+
+      <div class="pet-searcher__field pet-searcher__field--button">
+        <legend>Que sea...</legend>
+        <div>
+          <div class="form-group">
+            <label
+              for="{{ form.gender.id_for_label }}"
+              class="pet-searcher__label"
+              style="
+                font-size: 16px;
+                font-family: Rubik, sans-serif;
+                font-weight: 400;
+                color: #b26404;
+              "
+            >
+              Género:
+            </label>
+            {{ form.gender }}
+          </div>
+        </div>
+      </div>
+
+      <div class="pet-searcher__field">
+        <legend>De tamaño...</legend>
+        <div class="form-group">
+          <label
+            for="{{ form.size.id_for_label }}"
+            class="pet-searcher__label"
+            style="
+              font-size: 16px;
+              font-family: Rubik, sans-serif;
+              font-weight: 400;
+              color: #b26404;
+            "
+          >
+            Tamaño:
+          </label>
+          {{ form.size }}
+        </div>
+      </div>
+
+      <div class="pet-searcher__field">
+        <legend>De edad...</legend>
+        <div class="form-group">
+          <label
+            for="{{ form.min_age.id_for_label }}"
+            class="pet-searcher__label"
+            style="
+              font-size: 16px;
+              font-family: Rubik, sans-serif;
+              font-weight: 400;
+              color: #b26404;
+            "
+          >
+            Edad Mínima:
+          </label>
+          {{ form.min_age }}
+        </div>
+
+        <div class="form-group">
+          <label
+            for="{{ form.max_age.id_for_label }}"
+            class="pet-searcher__label"
+            style="
+              font-size: 16px;
+              font-family: Rubik, sans-serif;
+              font-weight: 400;
+              color: #b26404;
+            "
+          >
+            Edad Máxima:
+          </label>
+          {{ form.max_age }}
+        </div>
+      </div>
+
+      <p class="emo-phrase">Lo más importante es que lo puedas cuidar y amar</p>
+
+      <div class="btn-div">
+        <a
+          class="search-button search-button--secondary"
+          onclick="window.location.href='{% url 'index' %}'"
+          href="{% url 'index' %}"
         >
-            <div class="pet-searcher__field" id="specie-container">
-                <legend id="specie-legend">Especie de la mascota</legend>
-                <div id="specie-div">
-                    <label
-                        style="
-                            font-size: 16px;
-                            font-family: Rubik, sans-serif;
-                            font-weight: 400;
-                            color: #b26404;
-                        "
-                        for="{{ form.species.id_for_label }}"
-                        class="pet-searcher__label"
-                        >Especie:</label
-                    >
-                    {{ form.species }}
-                </div>
-            </div>
+          Volver
+        </a>
 
-            <div class="pet-searcher__field pet-searcher__field--button">
-                <legend>Que sea...</legend>
-                <div>
-                    <div class="form-group">
-                        <label
-                            for="{{ form.gender.id_for_label }}"
-                            class="pet-searcher__label"
-                            style="
-                                font-size: 16px;
-                                font-family: Rubik, sans-serif;
-                                font-weight: 400;
-                                color: #b26404;
-                            "
-                        >
-                            Género:
-                        </label>
-                        {{ form.gender }}
-                    </div>
-                </div>
-            </div>
-
-            <div class="pet-searcher__field">
-                <legend>De tamaño...</legend>
-                <div class="form-group">
-                    <label
-                        for="{{ form.size.id_for_label }}"
-                        class="pet-searcher__label"
-                        style="
-                            font-size: 16px;
-                            font-family: Rubik, sans-serif;
-                            font-weight: 400;
-                            color: #b26404;
-                        "
-                    >
-                        Tamaño:
-                    </label>
-                    {{ form.size }}
-                </div>
-            </div>
-
-            <div class="pet-searcher__field">
-                <legend>De edad...</legend>
-                <div class="form-group">
-                    <label
-                        for="{{ form.min_age.id_for_label }}"
-                        class="pet-searcher__label"
-                        style="
-                            font-size: 16px;
-                            font-family: Rubik, sans-serif;
-                            font-weight: 400;
-                            color: #b26404;
-                        "
-                    >
-                        Edad Mínima:
-                    </label>
-                    {{ form.min_age }}
-                </div>
-
-                <div class="form-group">
-                    <label
-                        for="{{ form.max_age.id_for_label }}"
-                        class="pet-searcher__label"
-                        style="
-                            font-size: 16px;
-                            font-family: Rubik, sans-serif;
-                            font-weight: 400;
-                            color: #b26404;
-                        "
-                    >
-                        Edad Máxima:
-                    </label>
-                    {{ form.max_age }}
-                </div>
-            </div>
-
-            <p class="emo-phrase">
-                Lo más importante es que lo puedas cuidar y amar
-            </p>
-
-            <div class="btn-div">
-                <a
-                    class="search-button search-button--secondary"
-                    onclick="window.location.href='{% url 'index' %}'"
-                    href="{% url 'index' %}"
-                >
-                    Volver
-                </a>
-
-                <button class="search-button" type="submit" name="submit">
-                    Buscar
-                </button>
-            </div>
-        </form>
-    </section>
+        <button class="search-button" type="submit" name="submit">
+          Buscar
+        </button>
+      </div>
+    </form>
+  </section>
 </main>
 {% endblock content %}

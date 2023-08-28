@@ -2,41 +2,41 @@
 <h1 class="searcher-page__title">Bienvenido</h1>
 
 <section class="doubts-panel">
-	<ul>
-		<li class="doubts-panel__option doubts-panel__option--secondary">
-			<a href="{% url 'home' %}" class="doubts-panel__link"> 🏠Inicio</a>
-		</li>
+  <ul>
+    <li class="doubts-panel__option doubts-panel__option--secondary">
+      <a href="{% url 'home' %}" class="doubts-panel__link"> 🏠Inicio</a>
+    </li>
 
-		{% if user.is_authenticated %}
-		<li class="doubts-panel__option doubts-panel__option--secondary">
-			<a href="{% url 'pet_list' %}" class="doubts-panel__link">
-				🐶Lista de mascotas</a
-			>
-		</li>
-		<li class="doubts-panel__option doubts-panel__option--secondary">
-			<a href="{% url 'sign_out' %}" class="doubts-panel__link"
-				>❌Cerrar sesión</a
-			>
-		</li>
+    {% if user.is_authenticated %}
+    <li class="doubts-panel__option doubts-panel__option--secondary">
+      <a href="{% url 'pet_list' %}" class="doubts-panel__link">
+        🐶Lista de mascotas</a
+      >
+    </li>
+    <li class="doubts-panel__option doubts-panel__option--secondary">
+      <a href="{% url 'sign_out' %}" class="doubts-panel__link"
+        >❌Cerrar sesión</a
+      >
+    </li>
 
-		<li class="doubts-panel__option doubts-panel__option--secondary">
-			<a href="{% url 'add_pet' %}" class="doubts-panel__link"
-				>📝Añadir mascota</a
-			>
-		</li>
-		{% else %} {% comment %}
-		<li class="doubts-panel__option doubts-panel__option--secondary">
-			<a href="{% url 'sign_up' %}" class="doubts-panel__link">🟢Registrarse</a>
-		</li>
-		{% endcomment %}
+    <li class="doubts-panel__option doubts-panel__option--secondary">
+      <a href="{% url 'add_pet' %}" class="doubts-panel__link"
+        >📝Añadir mascota</a
+      >
+    </li>
+    {% else %} {% comment %}
+    <li class="doubts-panel__option doubts-panel__option--secondary">
+      <a href="{% url 'sign_up' %}" class="doubts-panel__link">🟢Registrarse</a>
+    </li>
+    {% endcomment %}
 
-		<li class="doubts-panel__option doubts-panel__option--secondary">
-			<a href="{% url 'sign_in' %}" class="doubts-panel__link"
-				>📲Iniciar sesión</a
-			>
-		</li>
-		{% endif %}
-	</ul>
+    <li class="doubts-panel__option doubts-panel__option--secondary">
+      <a href="{% url 'sign_in' %}" class="doubts-panel__link"
+        >📲Iniciar sesión</a
+      >
+    </li>
+    {% endif %}
+  </ul>
 </section>
 
 {% endblock content %}
