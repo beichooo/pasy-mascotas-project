@@ -1,7 +1,17 @@
 {% extends 'layouts/base1.html' %} {% block content %}
-<h1>Iniciar sesión</h1>
+<h1 class="searcher-page__title">Iniciar sesión</h1>
 {{error}}
-<form action="#" method="POST">
+
+<div class="login-instructions">
+  <ul>
+    <li>El "username" es el nombre del albergue</li>
+    <li>
+      El "password" es el número de celular del representante del albergue
+    </li>
+  </ul>
+</div>
+
+<form action="#" method="POST" class="add-pet-form login-form">
   {% csrf_token %} {{form.as_p}}
   <button>Iniciar sesión</button>
 </form>

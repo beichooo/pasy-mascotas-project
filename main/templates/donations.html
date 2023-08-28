@@ -11,15 +11,11 @@
 
 <main>
   <section class="pets-showcase">
-    <!--TODO: Connect with the users table for view the shelters -->
     <div class="pets-showcase__grid">
       {%for shelter in shelters %}
       <div class="pets-showcase__card">
         <a href="{% url 'shelter_profile' shelter.id %}">
-          <img
-            src="../../media/{{shelter.shelter_logo}}"
-            alt="logo del albergue"
-          />
+          <img src="{{shelter.shelter_logo.url}}" alt="logo del albergue" />
           <p>{{shelter.shelter_name}}</p>
           <span>{{ shelter.address }}</span>
         </a>

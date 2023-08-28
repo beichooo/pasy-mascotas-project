@@ -1,0 +1,150 @@
+{% extends 'layouts/base1_main.html' %} {% load static %} {% block content %}
+<main class="info-adoption">
+  <div class="video-info">
+    <h1 class="video-info__title">
+      ¿Cómo puedo adoptar una mascota en Bolivia?
+    </h1>
+    <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/Jv1iolzbvZg?si=Px0HEEvsSnknVF3Q"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+    ></iframe>
+  </div>
+
+  <button
+    class="search_btn"
+    onclick="window.location.href = '../pet-searcher/searcher.html';"
+  >
+    <img
+      class="search_btn__icon"
+      src="{% static '/img/paw-icon.svg' %}"
+      alt="paw shape"
+    />
+    <span>BUSCAR UNA MASCOTA</span>
+  </button>
+  <section class="textContent">
+    <h2 class="textContent__title">
+      Proceso para adoptar una mascota en Bolivia
+    </h2>
+    <img
+      id="process_resume"
+      class="textContent__image"
+      src="{% static '/img/process-resume.svg' %}"
+      alt=""
+    />
+    <div>
+      <h3 class="textContent__subtitle">Primer paso</h3>
+      <p class="textContent__paragraph">
+        El primer paso es encontrar a tu compañero ideal en nuestro buscador de
+        mascotas, donde podrás filtrar tus búsquedas para encontrar el perro o
+        gato que se adapte a tu estilo de vida.
+      </p>
+      <img
+        class="textContent__image"
+        src="{% static '/img/first-step.svg' %}"
+        alt="icons for a pet and a searcher"
+      />
+    </div>
+    <div>
+      <h3 class="textContent__subtitle">Segundo paso</h3>
+      <p class="textContent__paragraph">
+        El segundo paso es visitar a la mascota en el lugar donde se encuentra,
+        esto te dará la oportunidad de conocerla más de cerca, jugar con ella, y
+        asegurarte de que sea una buena opción para ti.
+      </p>
+      <img
+        class="textContent__image"
+        src="{% static '/img/second-step.svg' %}"
+        alt="two dogs, one house"
+      />
+    </div>
+    <div>
+      <h3 class="textContent__subtitle">Tercer paso</h3>
+      <p class="textContent__paragraph">
+        El tercer paso es convivir con tu nueva mascota en tu hogar, para que
+        puedas asegurarte de que se adapte a su nueva casa y a su nueva familia.
+      </p>
+      <img
+        class="textContent__image"
+        src="{% static '/img/thrid-step.svg' %}"
+        alt="family, dog and a house"
+      />
+      <p class="textContent__paragraph" id="last_paragraph">
+        Por último, solo necesitas presentar estos 3 documentos al albergue
+        donde solicitas la adopción:
+      </p>
+      <ul class="textContent__list">
+        <li>Fotocopia o foto de carnet de identidad</li>
+        <li>Factura de luz</li>
+        <li>Croquis del domicilio</li>
+      </ul>
+      <span class="textContent__disclaimer"
+        >*Posterior a la adopción se pueden llegar a realizar visitas al
+        domicilio del adoptante para comprobar el estado de la mascota.</span
+      >
+    </div>
+  </section>
+  <section class="textContent">
+    <p class="textContent__paragraph">
+      Queremos asegurarnos de que este proceso sea lo más fácil y cómodo posible
+      para ti y la mascota, cualquier duda escríbenos al WhatsApp o checa
+      nuestro blog.
+    </p>
+    <div class="textContent__sec-btns">
+      <!-- <div>
+          <button>Preguntas frecuentes</button>
+          <button>Blog</button>
+        </div> -->
+      <div>
+        <button>WhatsApp</button>
+        <button>Hacer una donación</button>
+      </div>
+    </div>
+    <p id="mission-page-info">
+      Nuestro objetivo es encontrar un hogar amoroso y permanente para nuestras
+      mascotas rescatadas, porfavor ayudanos a lograr eso.
+    </p>
+  </section>
+  <button
+    class="search_btn"
+    onclick="window.location.href = '../pet-searcher/searcher.html';"
+  >
+    <img src="{% static '/img/paw-icon.svg' %}" alt="paw shape" />
+    BUSCAR UNA MASCOTA
+  </button>
+  <section class="textContent">
+    <h2 class="textContent__title">Requisitos para adoptar</h2>
+    <p class="textContent__paragraph">
+      El primero es tener la capacidad física y económica para cuidar de la
+      mascota.
+    </p>
+    <p class="textContent__paragraph">
+      Y el segundo, es una fotocopia simple de estos 3 documentos:
+    </p>
+    <ul class="textContent__list">
+      <li>Carnet de identidad</li>
+      <li>Factura de luz</li>
+      <li>Croquis del domicilio</li>
+    </ul>
+    <p class="textContent__paragraph">
+      Recuerda que pedimos estos documentos para cuidar tanto de ti como de la
+      mascota, gracias por entender ❤️.
+    </p>
+  </section>
+  <div class="suggest-box">
+    <p class="suggest-box__text">
+      ¿Tienes alguna queja o sugerencia? No dudes en decirnosla
+    </p>
+    <button
+      class="suggest-box__btn"
+      href="https://docs.google.com/forms/d/e/1FAIpQLSc2GcgdoTXtN7q0QvduGtjQ4qNzEaVzBFPWWUlHkVlTYKNzOA/viewform?usp=sf_link"
+    >
+      Enviar sugerencia
+    </button>
+  </div>
+</main>
+{% endblock content %}

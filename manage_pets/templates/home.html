@@ -24,10 +24,11 @@
         >📝Añadir mascota</a
       >
     </li>
-    {% else %}
+    {% else %} {% comment %}
     <li class="doubts-panel__option doubts-panel__option--secondary">
       <a href="{% url 'sign_up' %}" class="doubts-panel__link">🟢Registrarse</a>
     </li>
+    {% endcomment %}
 
     <li class="doubts-panel__option doubts-panel__option--secondary">
       <a href="{% url 'sign_in' %}" class="doubts-panel__link"

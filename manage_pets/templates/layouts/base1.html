@@ -57,47 +57,18 @@
     <!-- End Google Tag Manager (noscript) -->
     <header>
       <nav class="nav-bar">
-        <a href=" {% url 'index' %}">
+        <a href=" {% url 'home' %}">
           <span class="nav-bar__logo">PASY Albergues</span>
         </a>
         <div class="nav-bar__btns">
           <button
             class="nav-bar__donate-btn"
-            onclick="window.location.href='{% url 'donations'%}'"
+            onclick="window.open('https://wa.link/1n7eky', '_blank')"
           >
             Soporte
           </button>
         </div>
       </nav>
-
-      {% comment %}
-      <ul>
-        <li>
-          <a href="{% url 'home' %}"> Inicio</a>
-        </li>
-
-        {% if user.is_authenticated %}
-        <li>
-          <a href="{% url 'pet_list' %}">Lista de mascotas</a>
-        </li>
-        <li>
-          <a href="{% url 'sign_out' %}">Cerrar sesión</a>
-        </li>
-
-        <li>
-          <a href="{% url 'add_pet' %}">Añadir mascota</a>
-        </li>
-        {% else %}
-        <li>
-          <a href="{% url 'sign_up' %}">Registrarse</a>
-        </li>
-
-        <li>
-          <a href="{% url 'sign_in' %}">Iniciar sesión</a>
-        </li>
-        {% endif %}
-      </ul>
-      {% endcomment %}
     </header>
     {% block content %} {% endblock content %}
   </body>

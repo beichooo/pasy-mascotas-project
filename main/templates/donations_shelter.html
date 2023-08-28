@@ -4,7 +4,7 @@
   <section class="why-donate">
     <h1 class="why-donate__title">{{shelter.shelter_name}}</h1>
     <img
-      src="../../media/{{shelter.shelter_logo}}"
+      src="{{shelter.shelter_logo.url}}"
       class="why-donate__img"
       alt="logo del albergue"
     />
@@ -62,14 +62,14 @@
           alt="pasos para donar dinero"
         />
         <img
-          src="../../media/{{shelter.qr_donation}}"
+          src="{{shelter.qr_donation.url}}"
           alt="codigo QR de donacion"
           class="steps-donate__img"
           loading="lazy"
         />
         <a
           class="steps-donate__btn download-qr-button"
-          href="{{shelter.qr_donation}}"
+          href="{{shelter.qr_donation.url}}"
           download
           >Descargar
         </a>

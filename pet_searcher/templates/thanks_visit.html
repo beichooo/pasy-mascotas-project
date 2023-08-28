@@ -30,7 +30,11 @@
         />Ver la dirección
       </button>
     </a>
-    <a target="_blank" class="donar-qr-ty-page" href="#">
+    <a
+      target="_blank"
+      class="donar-qr-ty-page"
+      href="{% url 'shelter_profile' pet.user.id %}"
+    >
       <button class="tools-visit__btn">
         <img src="{% static 'img/qr-code-icon.svg' %}" alt="logo de qr" />Donar
         por QR
@@ -39,13 +43,21 @@
   </article>
 
   <article class="results__cta">
-    <span id="thanks-btn-phrase">La mejor forma de ayudarnos</span>
-    <!--FIXME: The share for facebook option now dont work-->
+    <span id="thanks-btn-phrase"
+      >Ayúdanos haciendo que todos sepan de PASY</span
+    >
+
+    <!--TODO: Set a option for share a image and no the URL-->
     <button class="facebook-share-btn">
-      <a target="_blank" class="facebook-share" href=""
-        >Compartir en Facebook</a
+      <a
+        href="https://www.facebook.com/sharer/sharer.php?u=https://www.pasymascotas.com/"
+        target="_blank"
+        class="facebook-share"
       >
+        Compartir en Facebook
+      </a>
     </button>
+
     <button
       class="results__cta--secondary"
       id="visitThanksHome"
@@ -55,16 +67,5 @@
     </button>
   </article>
 </section>
-
-<script>
-  const imageUrl = "{% static 'img/share-image-fb.png' %}";
-  const msg = encodeURIComponent(
-    "La mejor compañia la puedes adoptar de forma sencilla con PASY"
-  );
-  const title = encodeURIComponent("Yo prefiero adoptar una mascota, y tú?");
-
-  const fb = document.querySelector(".facebook-share");
-  fb.href = `https://www.facebook.com/sharer/sharer.php?u=${imageUrl}&title=${title}&description=${msg}`;
-</script>
 
 {% endblock content %}

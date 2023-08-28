@@ -1,18 +1,70 @@
-{% extends 'layouts/base1.html' %} {% block content %}
+{% extends 'layouts/base1.html' %} {% block content %} {% comment %}
+<section>
+  <h1>Lista de tu mascota en adopción</h1>
+  <ul>
+    {% for pet in pets %}
+    <li>
+      {{ pet.name }} - {{ pet.species }} - {{ pet.gender }} - {{ pet.size }} -
+      {{pet.age }}
+      <a href="{% url 'edit_pet' pet.id %}">Editar mascota</a>
 
-<h1>Lista de tu mascota en adopción</h1>
-<ul>
-  {% for pet in pets %}
-  <li>
-    {{ pet.name }} - {{ pet.species }} - {{ pet.gender }} - {{ pet.size }} -
-    {{pet.age }}
-    <a href="{% url 'edit_pet' pet.id %}">Editar mascota</a>
+      <form action="{% url 'delete_pet' pet.id %}" method="POST">
+        {% csrf_token %} {{error}}
+        <input type="submit" value="Eliminar" />
+      </form>
+    </li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'add_pet' %}">Add New Pet</a>
+</section>
+{% endcomment %}
 
-    <form action="{% url 'delete_pet' pet.id %}" method="POST">
-      {% csrf_token %} {{error}} <input type="submit" value="Eliminar" />
-    </form>
-  </li>
-  {% endfor %}
-</ul>
-<a href="{% url 'add_pet' %}">Add New Pet</a>
+<main class="results-list">
+  <h1 class="results__title">Tu lista de mascotas</h1>
+
+  <section class="pet-list" id="resultsContainer">
+    {% for pet in pets %}
+    <article class="pet-list__item">
+      <div>
+        {% comment %}
+        <img
+          class="pet-list__thumbnail"
+          src="{{pet.photos.url}}"
+          alt="mascota posando"
+        />
+        {% endcomment %}
+        <div>
+          <p>{{ pet.name }}</p>
+        </div>
+      </div>
+
+      <div>
+        <a href="{% url 'edit_pet' pet.id %}"> Editar</a>
+        <form
+          action="{% url 'delete_pet' pet.id %}"
+          method="POST"
+          class="form-list-shelter"
+        >
+          {% csrf_token %} {{error}}
+          <input type="submit" value="Eliminar" />
+        </form>
+      </div>
+    </article>
+    {% empty %}
+    <p class="pet-list__no-results-msg">
+      😅Upsss, no tienes mascotas registradas, puedes empezar ahora 😁.
+    </p>
+    {% endfor %}
+  </section>
+
+  <div class="results__cta">
+    <button
+      class="results__cta--secondary volver-buscar"
+      onclick="window.location.href='{% url 'home' %}'"
+    >
+      Ir al inicio
+    </button>
+  </div>
+</main>
+
 {% endblock content %}

@@ -6,4 +6,5 @@ urlpatterns = [
     path("", views.index, name="index"),
     path("donaciones/", views.donation_home, name="donations"),
     path("albergue/<int:shelter_id>/", views.shelter_profile, name="shelter_profile"),
+    path("como-adoptar/", views.info_adopt, name="info_adopt"),
 ]
