@@ -64,6 +64,10 @@ header {
   gap: 16px;
 }
 
+.nav-bar a .albergues {
+  color: var(--sec-color-600);
+}
+
 .nav-bar__donate-btn {
   display: flex;
   flex-direction: row;
@@ -526,6 +530,7 @@ main .hero {
   font-family: var(--texts-font);
   background-color: var(--background);
 }
+
 .pet-searcher {
   display: flex;
   flex-direction: column;
@@ -559,6 +564,7 @@ main .hero {
 #specie-legend {
   display: none;
 }
+
 #specie-container {
   margin-bottom: 8px;
 }
@@ -648,6 +654,7 @@ main .hero {
   background-color: var(--grey-color-500);
   color: var(--white);
 }
+
 /* checkmarks and check fields */
 .pet-searcher__field div .checkfield {
   display: flex;
@@ -776,6 +783,7 @@ main .hero {
 .results {
   padding: 16px;
 }
+
 /* results title */
 .results__title {
   font-family: var(--titles-font);
@@ -1187,6 +1195,7 @@ span.pet-profile__mood-tag[mood-pet-tag="Atención"] {
   background-color: #23b659;
   gap: 8px;
 }
+
 .results__cta .share-whatsapp img {
   max-width: 24px;
 }
@@ -1209,6 +1218,7 @@ span.pet-profile__mood-tag[mood-pet-tag="Atención"] {
 .more-info-pet p {
   margin-bottom: 16px;
 }
+
 .more-info-pet__title,
 .more-info-pet__tag {
   font-family: "Fredoka";
@@ -1289,6 +1299,7 @@ div:has(.donate-cta) {
   display: flex;
   flex-direction: column;
 }
+
 .visit-info-title h1 {
   display: none;
 }
@@ -1306,6 +1317,7 @@ div:has(.donate-cta) {
   color: var(--brand-color-600);
   margin-bottom: 24px;
 }
+
 .visit-info-title img {
   align-self: center;
   width: 140px;
@@ -1548,6 +1560,7 @@ div:has(.donate-cta) {
 
   color: var(--grey-color-600);
 }
+
 .visit-advices__text p span {
   font-weight: 500;
 }
@@ -1576,6 +1589,7 @@ div:has(.donate-cta) {
   color: white;
   margin-top: 32px;
 }
+
 /* Style for: visit-thanks.html */
 
 .visit-thanks-container {
@@ -1713,6 +1727,10 @@ div:has(.donate-cta) {
   justify-content: center;
 }
 
+.ask-opinion .login-pasy-albergues {
+  background-color: var(--sec-color-600);
+}
+
 .ask-opinion a {
   text-decoration: none;
   background-color: var(--brand-color-600);
@@ -1744,6 +1762,7 @@ div:has(.donate-cta) {
   font-weight: 600;
   margin-bottom: 32px;
 }
+
 .why-donate__img {
   width: 100%;
   max-width: 250px;
@@ -1792,6 +1811,7 @@ div:has(.donate-cta) {
 .shelter-social-media a {
   margin: 0 8px;
 }
+
 .steps-donate {
   width: 100%;
   max-width: 700px;
@@ -2016,11 +2036,13 @@ div:has(.donate-cta) {
   background: #fff6eb;
 
   color: var(--brand-color-500);
+  margin-top: 8px;
 }
 
 .donation-page {
   width: 100%;
 }
+
 /* TODO: Maybe the image like bg dont work, for the static property in django*/
 .donations-home__header {
   display: flex;
@@ -2045,6 +2067,7 @@ div:has(.donate-cta) {
   margin-top: 16px;
   margin-bottom: 8px;
 }
+
 .donations-home__header h2 {
   color: var(--white);
   text-align: center;
@@ -2055,6 +2078,7 @@ div:has(.donate-cta) {
   line-height: normal;
   margin-bottom: 8px;
 }
+
 .donations-home__header img {
   margin-bottom: 16px;
 }
@@ -2118,6 +2142,7 @@ div:has(.donate-cta) {
   gap: 4px;
   margin-bottom: 8px;
 }
+
 .add-pet-form p label {
   font-family: var(--titles-font);
   font-size: 1.6rem;
@@ -2241,6 +2266,7 @@ div:has(.donate-cta) {
   line-height: 19px;
   color: #000000;
 }
+
 .textContent div {
   margin-bottom: 3.2rem;
   display: flex;
