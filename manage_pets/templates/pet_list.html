@@ -40,6 +40,8 @@
 
       <div>
         <a href="{% url 'edit_pet' pet.id %}"> Editar</a>
+
+        {% comment %}
         <form
           action="{% url 'delete_pet' pet.id %}"
           method="POST"
@@ -48,6 +50,7 @@
           {% csrf_token %} {{error}}
           <input type="submit" value="Eliminar" />
         </form>
+        {% endcomment %}
       </div>
     </article>
     {% empty %}
@@ -60,11 +63,17 @@
   <div class="results__cta">
     <button
       class="results__cta--secondary volver-buscar"
-      onclick="window.location.href='{% url 'home' %}'"
+      onclick="window.location.href='{% url 'add_pet' %}'"
     >
-      Ir al inicio
+      Añadir mascota
     </button>
   </div>
+  <button
+    class="donate-go-home"
+    onclick="window.location.href='{% url 'home' %}'"
+  >
+    Volver al inicio
+  </button>
 </main>
 
 {% endblock content %}
