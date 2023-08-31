@@ -6,15 +6,15 @@ from django.core.validators import MinValueValidator
 
 
 class CustomUser(AbstractUser):
-    shelter_name = models.CharField(max_length=50)
-    shelter_logo = models.ImageField(upload_to="qr_donations/")
-    shelter_description = models.TextField(max_length=250)
+    shelter_name = models.CharField(max_length=50, blank=True)
+    shelter_logo = models.ImageField(upload_to="qr_donations/", blank=True)
+    shelter_description = models.TextField(max_length=250, blank=True)
     link_whatsapp = models.URLField(blank=True)
     link_facebook = models.URLField(blank=True)
     link_tiktok = models.URLField(blank=True)
     link_instagram = models.URLField(blank=True)
-    qr_donation = models.ImageField(upload_to="shelter_logos/")
-    address = models.TextField(max_length=250)
+    qr_donation = models.ImageField(upload_to="shelter_logos/", blank=True)
+    address = models.TextField(max_length=250, blank=True)
     link_maps = models.URLField(blank=True)
 
     def __str__(self):
