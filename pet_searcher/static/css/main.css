@@ -392,9 +392,9 @@ main .hero {
 
 .pets-showcase__card a img {
   width: 100%;
-  min-height: 300px;
-  max-height: 301px;
   object-fit: cover;
+  object-position: center;
+  aspect-ratio: 1/1;
 }
 
 .pets-showcase__card p {
@@ -979,6 +979,9 @@ main .hero {
 .pet-list__thumbnail {
   max-width: 80px;
   border-radius: 8px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  object-position: center;
 }
 
 .pet-list__item div div {
@@ -1066,6 +1069,9 @@ main .hero {
   margin: 0 auto;
   border-radius: 16px;
   margin-bottom: 16px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  object-position: center;
 }
 
 .pet-profile__carousel h1 {
@@ -1323,6 +1329,9 @@ div:has(.donate-cta) {
   width: 140px;
   margin: 0 auto;
   border-radius: 16px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  object-position: center;
 }
 
 .available-dates {
@@ -1643,6 +1652,9 @@ div:has(.donate-cta) {
   max-width: 100px;
   margin: 0 auto;
   border-radius: 16px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  object-position: center;
 }
 
 .tools-visit__indication {
@@ -1963,6 +1975,7 @@ div:has(.donate-cta) {
 
 .donate-money-block img {
   margin: 4px auto;
+  width: 100%;
 }
 
 .donate-kind-block {
