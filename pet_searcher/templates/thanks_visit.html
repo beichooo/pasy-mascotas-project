@@ -11,15 +11,14 @@
   </article>
   <span class="tools-visit__indication">Ahora, puedes hacer lo siguiente:</span>
   <article class="tools-visit">
-    <!-- TODO: Put the links according the user -->
     <a
       target="_blank"
       class="unirte-grupo-wp"
       href="{{pet.user.link_whatsapp}}"
     >
       <button class="tools-visit__btn">
-        <img src="{% static 'img/whatsapp.svg' %}" alt="whatsapp icon" />Unirte
-        al grupo
+        <img src="{% static 'img/whatsapp.svg' %}" alt="whatsapp icon" />Enviar
+        mensaje
       </button>
     </a>
     <a target="_blank" class="ver-mapa-g" href="{{pet.user.link_maps}}">
@@ -66,6 +65,12 @@
       Volver al inicio
     </button>
   </article>
+  <div class="notification">
+    <div class="notification-content">
+      <p class="popup-screen-title">🐾 RECUERDA 🐾</p>
+      <p>Vacunar y esterilizar a tu mascota es una forma de ayudar</p>
+    </div>
+  </div>
 </section>
 
 {% endblock content %}

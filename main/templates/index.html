@@ -31,7 +31,7 @@
         </a>
       </div>
       <div class="info-panel__two-columns">
-        <div class="info-panel__column" id="faq-box">
+        <div class="info-panel__column faq" id="faq-box">
           <img
             src="{% static 'img/usual-questions__info-panel.svg' %}"
             alt=" questions marks"
@@ -52,6 +52,37 @@
           src="{% static 'img/facts-image__info-panel.svg' %}"
           alt="related to the new of fact"
         />
+      </div>
+    </div>
+    <!-- popup 'como adoptar'-->
+    <div id="popup" class="popup">
+      <div class="popup-content">
+        <span class="close-button" onclick="howAdoptClosePopup()">&times;</span>
+        <img src="{% static "img/dog-icon-popup.svg" %}" alt="">
+        <p>Para registrar tu mascota envíanos un WhatsApp</p>
+        <button
+          type="button"
+          class="popup-button"
+          onclick="window.open('https://wa.link/qeu83h', '_blank')"
+        >
+          Envíar mensaje
+        </button>
+      </div>
+    </div>
+
+    <!-- popup 'preguntas frecuentes'-->
+    <div id="faqPopup" class="popup">
+      <div class="popup-content">
+        <span class="close-button" onclick="faqClosePopup()">&times;</span>
+        <img src="{% static "img/dog-icon-popup.svg" %}" alt="">
+        <p>Estamos trabajando en esta sección, envíanos sugerencias</p>
+        <button
+          type="button"
+          class="popup-button"
+          onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSc2GcgdoTXtN7q0QvduGtjQ4qNzEaVzBFPWWUlHkVlTYKNzOA/viewform?usp=sf_link', '_blank')"
+        >
+          Envíar sugerencia
+        </button>
       </div>
     </div>
   </section>
@@ -92,9 +123,8 @@
     </div> -->
 
     <div class="doubts-panel__option doubts-panel__option--secondary">
-      <!-- TODO: Put the correct link for the donations page-->
       <a href="{% url 'donations' %}">
-        <p>🏠 Lista de albergues amigos</p>
+        <p>🏠 Albergues amigos</p>
       </a>
     </div>
   </section>

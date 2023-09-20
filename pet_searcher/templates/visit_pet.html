@@ -3,7 +3,7 @@
   <section class="visit-info-container">
     <article class="visit-info-title">
       <h1>Programación de visita</h1>
-      <p class="">{{pet.name}} te espera...</p>
+      <p class="">{{pet.name}} espera tu confirmación...</p>
       <img src="{{pet.photos.url}}" alt="mascota a ser visitada" />
     </article>
 
@@ -28,14 +28,14 @@
       </div>
       <p class="shelter-location__promo">Para tu visita tendrás:</p>
       <div class="shelter-location__links">
-        <div id="googleMapsBtn">
+        <div id="googleMapsBtn" class="links-confirm-visit">
           <img
             src="{% static 'img/google maps.svg' %}"
             alt="google maps icon"
           />
           <span>Ubicación en Google Maps</span>
         </div>
-        <div id="whatsAppBtn">
+        <div id="whatsAppBtn" class="links-confirm-visit">
           <img src="{% static 'img/whatsapp.svg' %}" alt="whatsapp icon" />
           <span>Un grupo de WhatsApp</span>
         </div>
@@ -44,7 +44,7 @@
   </section>
 
   <section class="go-visit">
-    <div class="results__cta">
+    <div class="results__cta cta-exception">
       <button
         type="submit"
         id="confirmVisit"
@@ -62,4 +62,13 @@
     </button>
   </section>
 </main>
+
+<div id="confirmVisitPopup" class="popup">
+  <div class="popup-content">
+    <span class="close-button" onclick="confirmClosePopup()">&times;</span>
+    <img src="{% static "img/dog-icon-popup.svg" %}" alt="">
+    <p><strong>PORFAVOR</strong></p>
+    <p>Confirma tu visita para obtener los links <br />🙏</p>
+  </div>
+</div>
 {% endblock content %}
