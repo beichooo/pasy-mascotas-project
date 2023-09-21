@@ -10,8 +10,5 @@ class PetSearchForm(forms.Form):
     species = forms.ChoiceField(choices=SPECIES_CHOICES, required=False)
     gender = forms.ChoiceField(choices=GENDER_CHOICES, required=False)
     size = forms.ChoiceField(choices=SIZE_CHOICES, required=False)
-    min_age = forms.IntegerField(
-        label="Minimum Age", required=False, min_value=0)
-    max_age = forms.IntegerField(
-        label="Maximum Age", required=False, min_value=0)
-    # TODO: Here we can set the ranges with select options
+    min_age = forms.IntegerField(label="Minimum Age", required=False, min_value=0)
+    max_age = forms.IntegerField(label="Maximum Age", required=False, min_value=0)

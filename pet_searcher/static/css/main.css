@@ -2059,7 +2059,6 @@ div:has(.donate-cta) {
   width: 100%;
 }
 
-/* TODO: Maybe the image like bg dont work, for the static property in django*/
 .donations-home__header {
   display: flex;
   flex-direction: column;

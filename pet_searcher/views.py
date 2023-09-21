@@ -15,38 +15,41 @@ def search_form_page(request):
 
 
 def search_pets(request):
-    form = PetSearchForm()
-
     if request.method == "GET":
-        form = PetSearchForm(request.GET)
-        if form.is_valid():
-            species = form.cleaned_data.get("species")
-            gender = form.cleaned_data.get("gender")
-            size = form.cleaned_data.get("size")
-            print(species)
+        species = request.GET.get("species")
+        gender = request.GET.get("gender")
+        size = request.GET.get("size")
 
-            # Filter pets based on search criteria
-            pets = Pets.objects.all()
-            if species:
-                pets = pets.filter(species=species)
-            if gender:
-                pets = pets.filter(gender=gender)
-            if size:
-                pets = pets.filter(size=size)
+        pets = Pets.objects.all()
+        if species:
+            pets = pets.filter(species=species)
+        if gender:
+            pets = pets.filter(gender=gender)
+        if size:
+            pets = pets.filter(size=size)
 
-            return render(
-                request,
-                "search_results.html",
-                {
-                    "form": form,
-                    "pets": pets,
-                    "specie_field": species,
-                    "gender_field": gender,
-                    "size_field": size,
-                },
-            )
+        return render(
+            request,
+            "search_results.html",
+            {
+                "specie_field": species,
+                "gender_field": gender,
+                "size_field": size,
+                "pets": pets,
+            },
+        )
 
-    return render(request, "search_form.html", {"form": form})
+    return render(request, "search_form.html", {"form": PetSearchForm()})
+
+
+def view_all_pets(request):
+    pets = Pets.objects.all()
+
+    return render(
+        request,
+        "search_results.html",
+        {"pets": pets},
+    )
 
 
 def info_pet(request, pet_id):
