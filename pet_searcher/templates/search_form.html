@@ -6,108 +6,89 @@
       <div class="pet-searcher__field" id="specie-container">
         <legend id="specie-legend">Especie de la mascota</legend>
         <div id="specie-div">
-          <label
-            style="
-              font-size: 16px;
-              font-family: Rubik, sans-serif;
-              font-weight: 400;
-              color: #b26404;
-            "
-            for="{{ form.species.id_for_label }}"
-            class="pet-searcher__label"
-            >Especie:</label
-          >
-          {{ form.species }}
+          <label for="dog-specie">
+            <input
+              type="radio"
+              id="dog-specie"
+              name="species"
+              value="Perro"
+              required
+              checked
+            />
+            <span class="dog-specie"></span>
+          </label>
+
+          <label for="cat-specie">
+            <input type="radio" id="cat-specie" name="species" value="Gato" />
+            <span class="cat-specie"></span>
+          </label>
         </div>
       </div>
 
       <div class="pet-searcher__field pet-searcher__field--button">
         <legend>Que sea...</legend>
         <div>
-          <div class="form-group">
-            <label
-              for="{{ form.gender.id_for_label }}"
-              class="pet-searcher__label"
-              style="
-                font-size: 16px;
-                font-family: Rubik, sans-serif;
-                font-weight: 400;
-                color: #b26404;
-              "
-            >
-              Género:
-            </label>
-            {{ form.gender }}
-          </div>
+          <label for="male-pet">
+            <input
+              type="radio"
+              value="Macho"
+              id="male-pet"
+              name="gender"
+              checked
+            />
+            <span class="male-pet">Macho</span>
+          </label>
+
+          <label for="female-pet">
+            <input type="radio" value="Hembra" id="female-pet" name="gender" />
+            <span class="female-pet">Hembra</span>
+          </label>
         </div>
       </div>
 
       <div class="pet-searcher__field">
         <legend>De tamaño...</legend>
-        <div class="form-group">
-          <label
-            for="{{ form.size.id_for_label }}"
-            class="pet-searcher__label"
-            style="
-              font-size: 16px;
-              font-family: Rubik, sans-serif;
-              font-weight: 400;
-              color: #b26404;
-            "
-          >
-            Tamaño:
-          </label>
-          {{ form.size }}
+        <div class="check-container">
+          <div>
+            <label class="checkfield" for="small">
+              <input type="radio" id="small" name="size" value="Pequeño" />
+              <span class="checkmark"></span>
+            </label>
+            <span class="check-text">Pequeño</span>
+          </div>
+
+          <div>
+            <label class="checkfield" for="middle">
+              <input
+                type="radio"
+                id="middle"
+                name="size"
+                value="Mediano"
+                checked
+              />
+              <span class="checkmark"></span>
+            </label>
+            <span class="check-text">Mediano</span>
+          </div>
+
+          <div>
+            <label class="checkfield" for="large">
+              <input type="radio" id="large" name="size" value="Grande" />
+              <span class="checkmark"></span>
+            </label>
+            <span class="check-text">Grande</span>
+          </div>
         </div>
       </div>
-
-      <!--
-
-        <div class="pet-searcher__field">
-          <legend>De edad...</legend>
-          <div class="form-group">
-            <label
-            for="{{ form.min_age.id_for_label }}"
-            class="pet-searcher__label"
-            style="
-              font-size: 16px;
-              font-family: Rubik, sans-serif;
-              font-weight: 400;
-              color: #b26404;
-              "
-              >
-              Edad Mínima:
-            </label>
-          {{ form.min_age }}
-        </div>
-
-        <div class="form-group">
-          <label
-            for="{{ form.max_age.id_for_label }}"
-            class="pet-searcher__label"
-            style="
-            font-size: 16px;
-              font-family: Rubik, sans-serif;
-              font-weight: 400;
-              color: #b26404;
-              "
-              >
-              Edad Máxima:
-            </label>
-          {{ form.max_age }}
-        </div>
-      </div>
-      -->
 
       <p class="emo-phrase">Lo más importante es que lo puedas cuidar y amar</p>
 
       <div class="btn-div">
         <a
           class="search-button search-button--secondary"
-          onclick="window.location.href='{% url 'index' %}'"
-          href="{% url 'index' %}"
+          href="{% url 'view_all_pets' %}"
         >
-          Volver
+          Ver todos
         </a>
 
         <button class="search-button" type="submit" name="submit">

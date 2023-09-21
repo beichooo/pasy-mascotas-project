@@ -9,7 +9,9 @@
       <span>{{specie_field}}</span>
       <span>{{gender_field}}</span>
       <span>{{size_field}}</span>
-      <span>{{min_age}} a {{max_age}} años</span>
+      <!--
+        <span>{{min_age}} a {{max_age}} años</span>
+      -->
     </div>
   </section>
 
@@ -27,7 +29,7 @@
           <span>{{pet.age}} años - {{ pet.personality }} </span>
         </div>
       </div>
-      <a href="{% url 'info_pet' pet.id %}">Ver más</a>
+      <a href="{% url 'info_pet' pet.id %}">Ver</a>
     </article>
     {% empty %}
     <p class="pet-list__no-results-msg">😅Upsss, prueba con otros por favor.</p>

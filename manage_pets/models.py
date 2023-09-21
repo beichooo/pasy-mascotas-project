@@ -24,7 +24,6 @@ class CustomUser(AbstractUser):
         verbose_name_plural = "Custom Users"
 
 
-# TODO: I dont use the multifield upload, instead use two single image upload, fix in the future
 class Pets(models.Model):
     SPECIES_CHOICES = (("Perro", "Perro"), ("Gato", "Gato"))
 
