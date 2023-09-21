@@ -2151,6 +2151,9 @@ div:has(.donate-cta) {
   max-width: 500px;
 }
 
+.add-pet-form p ul {
+  display: none;
+}
 .add-pet-form p {
   display: flex;
   flex-direction: column;
